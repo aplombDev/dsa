@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login with Google</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f2f5;
+        font-family: Arial, sans-serif;
+      }
+      .login-container {
+        text-align: center;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+      }
+      h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333333;
+      }
+      #google-login {
+        display: flex;
+        justify-content: center;
+      }
+      .google-button {
+        background-color: #4285f4;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .google-button:hover {
+        background-color: #357abd;
+      }
+      .google-button img {
+        width: 20px;
+        margin-right: 10px;
+      }
+    </style>
+    <script>
+      function handleCredentialResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential);
+        // Send the token to your server for verification and authentication
+      }
+      function onLoad() {
+        google.accounts.id.initialize({
+          client_id: "YOUR_GOOGLE_CLIENT_ID",
+          callback: handleCredentialResponse,
+        });
+        google.accounts.id.renderButton(
+          document.getElementById("google-login"),
+          { theme: "outline", size: "large" } // Customization options
+        );
+      }
+    </script>
+  </head>
+  <body onload="onLoad()">
+    <div class="login-container">
+      <h2>Login with Google</h2>
+      <div id="google-login"></div>
+    </div>
+  </body>
+</html>
