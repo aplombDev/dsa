@@ -116,14 +116,6 @@ Contributions are welcome! Please follow these steps to contribute:
 5. Push to the branch (`git push origin feature-branch`).
 6. Create a new Pull Request.
 
-
-
-## Acknowledgements
-
-- [Prince Verma](https://github.com/vermaprince123) - Creator and maintainer
-
----
-
 Feel free to reach out with any questions or suggestions. Happy coding!
 
 ---
